@@ -185,4 +185,8 @@
 
 .chat__footer {
   margin-top: auto;
+
+  input.form__field {
+    @include animation-SlideInRight;
+  }
 }
