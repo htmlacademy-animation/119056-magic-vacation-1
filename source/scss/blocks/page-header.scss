@@ -5,6 +5,8 @@
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
+  transform: translateY(-100%);
+  transition: transform 0.35s easing('custom');
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -35,6 +37,8 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-150%);
+  transition: transform 0.35s easing('custom');
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -306,5 +310,15 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+.body-load {
+  .page-header {
+    transform: translateY(0);
+  }
+
+  .page-header__logo {
+    transform: translateX(0);
   }
 }
