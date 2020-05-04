@@ -10118,10 +10118,10 @@ module.exports = code;
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (() => {
   const markBodyAsLoad = () => {
-    document.body.classList.add('body-load');
-    window.removeEventListener('load', markBodyAsLoad, false);
+    document.body.classList.add(`body-load`);
+    window.removeEventListener(`load`, markBodyAsLoad, false);
   };
-  window.addEventListener('load', markBodyAsLoad, false);
+  window.addEventListener(`load`, markBodyAsLoad, false);
 });
 
 
