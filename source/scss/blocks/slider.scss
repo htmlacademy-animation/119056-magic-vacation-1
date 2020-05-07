@@ -5,6 +5,7 @@
 
   .swiper-wrapper {
     min-height: 100vh;
+    box-sizing: border-box;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(var(--vh, 1vh) * 100);
@@ -72,7 +73,6 @@
   font-size: 4.8rem;
   line-height: 0.906;
   letter-spacing: -0.04em;
-  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     margin-left: -55px;
@@ -96,7 +96,6 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
-  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -123,15 +122,6 @@
     min-height: 14rem;
     font-size: 1.4rem;
     line-height: 1.5rem;
-  }
-}
-
-.slider__item.swiper-slide-active,
-.slider__item.swiper-slide-next {
-  .slider__item-title, 
-  .slider__item-text {
-    @include animation-FadeIn;
-    animation-delay: 0.35s;
   }
 }
 
@@ -286,5 +276,3 @@
     }
   }
 }
-
-
