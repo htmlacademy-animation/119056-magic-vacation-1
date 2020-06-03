@@ -1890,12 +1890,14 @@ img {
       content: "";
       position: absolute;
       bottom: 0;
-      width: 0;
+      width: 100%;
       height: 2px;
       background-color: #ffffff;
       display: block;
       left: 0;
-      transition: width 0.2s ease, background-color 0.2s ease; }
+      transform: scaleX(0);
+      transform-origin: 100% 0;
+      transition: transform 0.2s ease, background-color 0.2s ease; }
       @media (max-width: 1024px) and (orientation: portrait) {
         .page-header__menu a::after {
           left: 0;
@@ -1906,8 +1908,9 @@ img {
           left: 0;
           right: 0;
           background-color: #5f458c; } }
-    .page-header__menu a.active::after {
-      width: 100%; }
+    .page-header__menu a.active::after, .page-header__menu a:hover::after {
+      transform: scaleX(1);
+      transform-origin: 0 0; }
     .page-header__menu a:hover, .page-header__menu a:focus {
       color: #a67ee5;
       outline: none; }
@@ -2882,8 +2885,12 @@ img {
       background-size: auto calc(100vh - 13.8rem), 100% 25rem;
       background-position: top center, bottom center; } }
 
+.screen--prizes {
+  background-color: transparent; }
+
 .screen--game {
-  position: relative; }
+  position: relative;
+  background-color: transparent; }
   .screen--game::before {
     content: "";
     position: absolute;
@@ -2911,11 +2918,15 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: transparent;
   opacity: 0;
   pointer-events: none; }
   .screen--result.screen--show {
     opacity: 1;
     pointer-events: auto; }
+
+.screen--rules {
+  background-color: transparent; }
 
 .body-load .screen__footer {
   transform: translateY(0); }
@@ -2927,12 +2938,15 @@ img {
   width: 100%;
   height: 0;
   background-color: #5f458c;
-  transition: height 0.35s ease; }
+  transform: translateY(100%);
+  transition: transform 1s ease;
+  z-index: 1; }
 
 .screen--prizes.active ~ .section-background,
 .screen--rules.active ~ .section-background,
 .screen--game.active ~ .section-background {
-  height: 100%; }
+  height: 100%;
+  transform: translateY(0); }
 
 .slider {
   position: relative;
