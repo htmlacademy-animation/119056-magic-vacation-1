@@ -1225,11 +1225,12 @@ img {
 
 .chat__footer {
   margin-top: auto; }
-  .chat__footer input.form__field {
-    animation-name: SlideInRight;
-    animation-duration: 0.35s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards; }
+
+.screen.active .chat__footer input.form__field {
+  animation-name: SlideInRight;
+  animation-duration: 0.35s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards; }
 
 .disclaimer {
   color: #5f458c;
@@ -2619,7 +2620,11 @@ img {
   z-index: 1;
   overflow: hidden; }
   .screen--hidden {
-    display: none; }
+    visibility: hidden;
+    opacity: 0; }
+  .screen.active {
+    visibility: visible;
+    opacity: 1; }
   @media (max-width: 1024px) and (orientation: portrait) {
     .screen {
       min-height: calc(var(--vh, 1vh) * 100); } }
@@ -2886,11 +2891,17 @@ img {
       background-position: top center, bottom center; } }
 
 .screen--prizes {
-  background-color: transparent; }
+  background-color: transparent;
+  z-index: 2;
+  transition: none; }
+  .screen--prizes.active {
+    transition: opacity 0.3s ease;
+    transition-delay: 1s; }
 
 .screen--game {
   position: relative;
-  background-color: transparent; }
+  background-color: transparent;
+  z-index: 2; }
   .screen--game::before {
     content: "";
     position: absolute;
@@ -2926,7 +2937,8 @@ img {
     pointer-events: auto; }
 
 .screen--rules {
-  background-color: transparent; }
+  background-color: transparent;
+  z-index: 2; }
 
 .body-load .screen__footer {
   transform: translateY(0); }
