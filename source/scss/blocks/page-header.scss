@@ -8,6 +8,10 @@
   transform: translateY(-100%);
   transition: transform 0.35s easing('custom');
 
+  .body-load & {
+    transform: translateY(0);
+  }
+
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
   }
@@ -39,6 +43,10 @@
   color: $c-light;
   transform: translateX(-150%);
   transition: transform 0.35s easing('custom');
+
+  .body-load & {
+    transform: translateX(0);
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -309,15 +317,5 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-left: 0;
     width: 100%;
-  }
-}
-
-.body-load {
-  .page-header {
-    transform: translateY(0);
-  }
-
-  .page-header__logo {
-    transform: translateX(0);
   }
 }
