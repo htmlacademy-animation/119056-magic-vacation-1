@@ -9,13 +9,7 @@
   overflow: hidden;
 
   &--hidden {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  &.active {
-    visibility: visible;
-    opacity: 1;
+    display: none;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -313,19 +307,13 @@
 
 .screen--prizes {
   background-color: transparent;
-  z-index: 2;
-  transition: none;
-
-  &.active {
-    transition: opacity 0.3s ease;
-    transition-delay: 1s;
-  }
+  // background-color: $c-dark;
 }
 
 .screen--game {
   position: relative;
   background-color: transparent;
-  z-index: 2;
+  // background-color: $c-dark;
 
   &::before {
     content: "";
@@ -360,6 +348,7 @@
   left: 0;
   right: 0;
   background-color: transparent;
+  // background-color: $c-dark;
   opacity: 0;
   pointer-events: none;
 
@@ -371,7 +360,7 @@
 
 .screen--rules {
   background-color: transparent;
-  z-index: 2;
+  // background-color: $c-dark;
 }
 
 .body-load {
