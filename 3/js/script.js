@@ -10331,18 +10331,54 @@ class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    this.displayVisibilityHandler();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
 
-  changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
+  toggleSectionBg(force) {
+    const sectionBg = document.querySelector(`.section-background`);
+    sectionBg.classList.toggle(`section-background--active`, force);
+
+  }
+
+  animateFromStoryToPrizes() {
+    const delay = 500;
+    this.toggleSectionBg(true);
+    setTimeout(() => {
+      this.changeVisibilityDisplay();
+      this.toggleSectionBg(false);
+    }, delay);
+  }
+
+  displayVisibilityHandler() {
+    const prizesId = 2;
+    const isStoryPrizesChange = Array.from(this.screenElements).some((screen) => {
+      const storyClassName = `screen--story`;
+      const activeClassName = `active`;
+      return (
+        screen.classList.contains(storyClassName)
+        && screen.classList.contains(activeClassName)
+        && this.activeScreen === prizesId
+      );
     });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    this.screenElements[this.activeScreen].classList.add(`active`);
+
+    if (isStoryPrizesChange) {
+      this.animateFromStoryToPrizes();
+    } else {
+      this.changeVisibilityDisplay();
+    }
+  }
+
+  changeVisibilityDisplay() {
+    const activeClassName = `active`;
+    const hiddenClassName = `screen--hidden`;
+    this.screenElements.forEach((screen) => {
+      screen.classList.add(hiddenClassName);
+      screen.classList.remove(activeClassName);
+    });
+    this.screenElements[this.activeScreen].classList.remove(hiddenClassName);
+    this.screenElements[this.activeScreen].classList.add(activeClassName);
   }
 
   changeActiveMenuItem() {
