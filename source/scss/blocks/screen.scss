@@ -306,14 +306,14 @@
 }
 
 .screen--prizes {
-  background-color: transparent;
-  // background-color: $c-dark;
+  background-color: $c-dark;
+  z-index: 2;
 }
 
 .screen--game {
   position: relative;
-  background-color: transparent;
-  // background-color: $c-dark;
+  background-color: $c-dark;
+  z-index: 2;
 
   &::before {
     content: "";
@@ -347,8 +347,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: transparent;
-  // background-color: $c-dark;
+  background-color: $c-dark;
   opacity: 0;
   pointer-events: none;
 
@@ -359,8 +358,8 @@
 }
 
 .screen--rules {
-  background-color: transparent;
-  // background-color: $c-dark;
+  background-color: $c-dark;
+  z-index: 2;
 }
 
 .body-load {
@@ -377,13 +376,11 @@
   height: 0;
   background-color: $c-dark;
   transform: translateY(100%);
-  transition: transform 1s ease;
+  transition: transform 500ms linear;
   z-index: 1;
 }
 
-.screen--prizes.active ~ .section-background,
-.screen--rules.active ~ .section-background,
-.screen--game.active ~ .section-background {
+.section-background--active {
   height: 100%;
   transform: translateY(0);
 }
