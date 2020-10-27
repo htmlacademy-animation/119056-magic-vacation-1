@@ -10339,7 +10339,6 @@ class FullPageScroll {
   toggleSectionBg(force) {
     const sectionBg = document.querySelector(`.section-background`);
     sectionBg.classList.toggle(`section-background--active`, force);
-
   }
 
   animateFromStoryToPrizes() {
