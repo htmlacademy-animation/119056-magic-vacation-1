@@ -272,6 +272,14 @@ $item-duration: 400;
   bottom: 6rem;
   right: 5.6rem;
 
+  opacity: 0;
+  font-size: 0;
+  transform-origin: 100%;
+
+  &.rules__link--visible {
+    @include animation-RulesButtonComing;
+  }
+
   @media (min-width: $stop-scaling) {
     bottom: 60px;
     right: 56px;
