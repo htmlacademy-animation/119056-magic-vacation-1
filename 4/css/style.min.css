@@ -2736,12 +2736,13 @@ img {
   opacity: 0;
   font-size: 0;
   transform-origin: 100%; }
-  .rules__link.rules__link--visible {
+  .screen--rules.active .rules__link {
     animation-name: RulesButtonComing;
     animation-duration: 300ms;
     animation-delay: 200ms;
     animation-timing-function: ease;
-    animation-fill-mode: forwards; }
+    animation-fill-mode: forwards;
+    animation-delay: 1400ms; }
   @media (min-width: 2000px) {
     .rules__link {
       bottom: 60px;

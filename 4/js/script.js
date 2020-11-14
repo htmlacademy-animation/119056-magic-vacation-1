@@ -10519,27 +10519,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./source/js/modules/rules.js":
-/*!************************************!*\
-  !*** ./source/js/modules/rules.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (() => {
-  const showButtonAfterLastRulesItem = () => {
-    const rulesLink = document.querySelector(`.rules__link`);
-    rulesLink.classList.add(`rules__link--visible`);
-  };
-  const lastRulesItem = document.querySelector(`.rules__item:last-child p`);
-  lastRulesItem.addEventListener(`animationstart`, showButtonAfterLastRulesItem, false);
-});
-
-
-/***/ }),
-
 /***/ "./source/js/modules/slider.js":
 /*!*************************************!*\
   !*** ./source/js/modules/slider.js ***!
@@ -10677,9 +10656,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_social_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/social.js */ "./source/js/modules/social.js");
 /* harmony import */ var _modules_full_page_scroll__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/full-page-scroll */ "./source/js/modules/full-page-scroll.js");
 /* harmony import */ var _modules_body__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/body */ "./source/js/modules/body.js");
-/* harmony import */ var _modules_rules__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/rules */ "./source/js/modules/rules.js");
 // modules
-
 
 
 
@@ -10701,7 +10678,6 @@ Object(_modules_result_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
 Object(_modules_form_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
 Object(_modules_social_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
 Object(_modules_body__WEBPACK_IMPORTED_MODULE_9__["default"])();
-Object(_modules_rules__WEBPACK_IMPORTED_MODULE_10__["default"])();
 
 const fullPageScroll = new _modules_full_page_scroll__WEBPACK_IMPORTED_MODULE_8__["default"]();
 fullPageScroll.init();
