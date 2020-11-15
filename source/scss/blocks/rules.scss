@@ -31,6 +31,11 @@
   font-size: 4.8rem;
   line-height: 0.906;
   letter-spacing: -0.04em;
+  opacity: 0;
+
+  .screen--rules.active & {
+    @include animation-FadeIn;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-bottom: 50px;
@@ -59,6 +64,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  opacity: 0;
+
+  .screen--rules.active & {
+    @include animation-FadeIn;
+    animation-delay: 0.3s;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
@@ -145,6 +156,39 @@
   }
 
   &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    font-family: $font-alt;
+    font-weight: 400;
+    font-size: 2.4rem;
+    background-color: $c-purple;
+    border-radius: 50%;
+    line-height: 5rem;
+    text-align: center;
+    transform: scale(0);
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      top: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      line-height: 3rem;
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      top: 0.6rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      line-height: 3rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &::after {
     content: counter(li);
     counter-increment: li;
     position: absolute;
@@ -159,6 +203,7 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    opacity: 0;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -179,9 +224,45 @@
 
   p {
     margin: 0;
+    opacity: 0;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
+    }
+  }
+}
+
+$item-duration: 400;
+.rules__item {
+  &::before {    
+    .screen--rules.active & {
+      @include animation-RulesItemMarkerComing;
+    }
+  }
+
+  &::after {
+    .screen--rules.active & {
+      @include animation-RulesItemCounterComing;
+    }
+  }
+
+  p {
+    @include animation-RulesTextComing;
+  }
+}
+
+@for $i from 1 through 4 {
+  .rules__item:nth-child(#{$i}) {
+    &::before {
+      animation-delay: #{$item-duration + ($i * $item-duration / 2)}ms;
+    }
+
+    &::after {
+      animation-delay: #{$item-duration + ($i * $item-duration / 2)}ms;
+    }
+
+    p {
+      animation-delay: #{$item-duration + ($i * $item-duration / 2)}ms;
     }
   }
 }
@@ -190,6 +271,14 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+
+  opacity: 0;
+  font-size: 0;
+  transform-origin: 100%;
+
+  &.rules__link--visible {
+    @include animation-RulesButtonComing;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;

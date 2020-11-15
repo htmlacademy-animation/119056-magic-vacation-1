@@ -18,6 +18,72 @@
   }
 }
 
+@keyframes RulesTextComing {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  33% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes RulesItemMarkerComing {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes RulesItemCounterComing {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes RulesButtonComing {
+  from {
+    opacity: 0;
+    font-size: 0;
+    color: rgba($color: #5f458c, $alpha: 0);
+  }
+
+  10% {
+    opacity: 1;
+    font-size: 0;
+    color: rgba($color: #5f458c, $alpha: 0);
+  }
+
+  20% {
+    opacity: 1;
+    font-size: 0;
+    color: rgba($color: #5f458c, $alpha: 0);
+  }
+
+  80% {
+    color: rgba($color: #5f458c, $alpha: 0);
+  }
+  
+  to {
+    opacity: 1;
+    font-size: 2.4rem;
+    color: rgba($color: #5f458c, $alpha: 1);
+  }
+}
+
 @mixin animation-FadeIn {
   animation-name: FadeIn;
   animation-duration: 0.35s;
@@ -32,8 +98,38 @@
   animation-fill-mode: forwards;
 }
 
+@mixin animation-RulesTextComing {
+  animation-name: RulesTextComing;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@mixin animation-RulesItemMarkerComing {
+  animation-name: RulesItemMarkerComing;
+  animation-duration: 500ms;
+  animation-timing-function: easing('bubble');
+  animation-fill-mode: forwards;
+}
+
+@mixin animation-RulesItemCounterComing {
+  animation-name: RulesItemCounterComing;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@mixin animation-RulesButtonComing {
+  animation-name: RulesButtonComing;
+  animation-duration: 300ms;
+  animation-delay: 200ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
 $easing-funcs: (
   custom: (0.48, 0.19, 0, 1),
+  bubble: (0.4, 2, 1, 1),
 );
 
 @function easing($type) {
