@@ -276,9 +276,8 @@ $item-duration: 400;
   font-size: 0;
   transform-origin: 100%;
 
-  .screen--rules.active & {
+  &.rules__link--visible {
     @include animation-RulesButtonComing;
-    animation-delay: #{$item-duration * 3.5}ms;
   }
 
   @media (min-width: $stop-scaling) {
